@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XCD0P28X34"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XCD0P28X34");
+    </script>
+    <title>Bumi Landing Page</title>
+    <link rel="icon" href="./assets/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="./assets/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <img class="logo" src="./assets/1145-2402.png" alt="Bumi logo" />
+        <nav class="menu">
+          <a href="#meet-bumi">How it works</a>
+          <a href="#our-product">Products</a>
+          <a href="#waitlist">FAQ's</a>
+          <a href="#waitlist" class="btn btn-sm">Join the Waiting List</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Screen time that makes <span class="hero-highlight">them smarter</span></h1>
+          <p>
+            Bumi is an AI companion that gently interrupts scrolling habits and asks
+            questions that build critical thinking, self-awareness and emotional
+            intelligence. One pause at a time
+          </p>
+          <a class="btn btn-pill btn-lg learn-more" href="#meet-bumi">Learn more</a>
+        </div>
+        <img class="hero-image" src="./assets/1145-2418.png" alt="Bumi device preview" />
+      </section>
+
+      <section class="problem">
+        <h2>The Problem We’re Solving</h2>
+        <div class="problem-grid">
+          <article class="stat-card">
+            <h3>3.6 hrs</h3>
+            <p>
+              Average daily screen time for children under 8, leading to decreased
+              physical activity.
+            </p>
+          </article>
+          <article class="stat-card">
+            <h3>53%</h3>
+            <p>
+              Of parents report regular "screen time meltdowns" when it's time to put
+              devices away.
+            </p>
+          </article>
+          <article class="stat-card">
+            <h3>75%</h3>
+            <p>
+              Of educational apps use predatory mechanics that create digital
+              dependency early on.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="meet" id="meet-bumi">
+        <!-- 与 Figma 页内 1149:2512 一致：相对 Frame 2085663189(y=1113) 为 left -79、top 89 -->
+        <div class="meet-bg" aria-hidden="true">
+          <img
+            class="meet-bg-art"
+            src="./assets/1149-2512.svg"
+            alt=""
+            width="1717"
+            height="1790"
+          />
+        </div>
+        <div class="meet-inner">
+          <div class="section-title">
+            <h2>Meet Bumi</h2>
+            <img src="./assets/1145-2450.svg" alt="" />
+          </div>
+          <div class="feature-row">
+            <img src="./assets/1145-2434.png" alt="" />
+            <div>
+              <h3>Pause Triggers with Reflective Questioning</h3>
+              <p>
+                Instead of telling kids what to think, Bumi asks questions that make
+                them think for themselves, building the habit of pausing, questioning,
+                and forming their own opinion before scrolling on.
+              </p>
+            </div>
+          </div>
+          <div class="feature-row reverse">
+            <div>
+              <h3>Age-adaptive Mode</h3>
+              <p>
+                Bumi adjusts as your child grows asking harder questions, giving more
+                autonomy, and evolving from playful companion to thoughtful coach
+                between ages 8 and 15.
+              </p>
+            </div>
+            <img src="./assets/1145-2468.png" alt="" />
+          </div>
+          <div class="feature-row">
+            <img src="./assets/1145-2473.png" alt="" />
+            <div>
+              <h3>Parent Dashboard</h3>
+              <p>
+                Tune Bumi to your child. Adjust pause frequency, question intensity, and
+                screen limits anytime, all from one simple dashboard.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="move">
+        <!-- 1149:2445：白底；标注与引线同行 flex 垂直居中 -->
+        <div class="move-stage">
+          <img class="move-rings" src="./assets/1149-2448.svg" alt="" />
+          <div class="move-header">
+            <h2>Bumi on the Move</h2>
+            <img src="./assets/1149-2480.svg" alt="" />
+            <p>
+              Bumi doesn't have to stay on your screen. Dock your phone onto his body
+              and he walks right into the real world, unlocking a whole new dimension of
+              features
+            </p>
+          </div>
+          <img class="move-initial" src="./assets/1156-2809.png" alt="Bumi initial state" />
+          <p class="move-note">*Initial state of Bumi</p>
+          <!-- 1149:2482：文案+线成对；机器人 DOM 最后在最上层 -->
+          <div class="move-callout-group">
+            <div class="move-callout-row move-callout-row--left move-callout-row--l1">
+              <p class="label">Your phone's camera becomes Bumi's eyes</p>
+              <img class="line" src="./assets/1149-2492.svg" alt="" />
+            </div>
+            <div class="move-callout-row move-callout-row--left move-callout-row--l2">
+              <p class="label">Touch sensor shell</p>
+              <img class="line" src="./assets/1149-2493.svg" alt="" />
+            </div>
+            <div class="move-callout-row move-callout-row--left move-callout-row--l3">
+              <p class="label">Motor joints, what makes him move and waddle</p>
+              <img class="line" src="./assets/1149-2494.svg" alt="" />
+            </div>
+            <div class="move-callout-row move-callout-row--right move-callout-row--l4">
+              <img class="line" src="./assets/1149-2489.svg" alt="" />
+              <p class="label">Mounting dock for your smartphone</p>
+            </div>
+            <div class="move-callout-row move-callout-row--right move-callout-row--l5">
+              <img class="line" src="./assets/1149-2491.svg" alt="" />
+              <p class="label">Type C<br />Charger behind</p>
+            </div>
+            <div class="move-callout-row move-callout-row--right move-callout-row--l6">
+              <img class="line" src="./assets/1149-2490.svg" alt="" />
+              <p class="label">Bumi can be landscape or portrait</p>
+            </div>
+            <img class="move-hero" src="./assets/1149-2495.png" alt="Bumi robot" />
+          </div>
+        </div>
+        <div class="move-grid">
+          <article class="feature-card">
+            <img src="./assets/1149-2498.png" alt="" />
+            <h3>Smart Companion</h3>
+            <p>
+              Place the phone on Bumi, and he watches with your child, detects
+              low-quality content, and prompts simple questions to turn scrolling into
+              thinking.
+            </p>
+          </article>
+          <article class="feature-card">
+            <img src="./assets/1149-2503.png" alt="" />
+            <h3>Times up!</h3>
+            <p>
+              Bumi can be set to run away when child’s screen time is up. Get your
+              child moving to chase him down!
+            </p>
+          </article>
+          <article class="feature-card">
+            <img src="./assets/1149-2508.png" alt="" />
+            <h3>Bumi reacts</h3>
+            <p>
+              Beyond his expressive face, Bumi can respond to being picked up, pet or
+              squeezed, reacting in the moment like a companion that actually knows
+              you.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="product" id="our-product">
+        <h2 class="product-title">Our Product</h2>
+        <div class="product-grid">
+          <article class="product-card">
+            <img class="phone" src="./assets/1149-2524.png" alt="" />
+            <div class="product-stack">
+              <div class="product-intro">
+                <h3>Bumi the App</h3>
+                <p>Everything your child needs to build healthier screen habits</p>
+              </div>
+              <div class="product-pricing">
+                <strong>Starting at around $10/mo</strong>
+                <button type="button" class="btn btn-pill">Notify Me</button>
+              </div>
+              <div class="product-features">
+                <h4>Features</h4>
+                <ul class="feature-list">
+                  <li><img src="./assets/1149-2537.svg" alt="" />Gentle pauses break scrolling at set intervals</li>
+                  <li><img src="./assets/1149-2541.svg" alt="" />Prompts simple questions to encourage reflection</li>
+                  <li><img src="./assets/1149-2545.svg" alt="" />Works with Screen Time & Family Link</li>
+                  <li><img src="./assets/1149-2549.svg" alt="" />Parent dashboard controls limits & frequency</li>
+                  <li><img src="./assets/1149-2553.svg" alt="" />Adapts with your child (ages 8–15)</li>
+                  <li><img src="./assets/1149-2557.svg" alt="" />Privacy-first: no tracking or logging</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article class="product-card product-card-alt">
+            <img class="phone robot-shot" src="./assets/robot-product.png" alt="" />
+            <div class="product-stack">
+              <div class="product-intro">
+                <h3>Bumi the Robot</h3>
+                <p>Get Bumi the Robot + 1 year premium subscription included</p>
+              </div>
+              <div class="product-pricing">
+                <strong>Starting at around $259</strong>
+                <button type="button" class="btn btn-pill">Notify Me</button>
+              </div>
+              <div class="product-features">
+                <h4>Features</h4>
+                <ul class="feature-list">
+                  <li><img src="./assets/1149-2576.svg" alt="" />Gentle pauses break scrolling at set intervals</li>
+                  <li><img src="./assets/1149-2580.svg" alt="" />Prompts simple questions to encourage reflection</li>
+                  <li><img src="./assets/1149-2584.svg" alt="" />Works with Screen Time & Family Link</li>
+                  <li><img src="./assets/1149-2588.svg" alt="" />Parent dashboard controls limits & frequency</li>
+                  <li><img src="./assets/1149-2592.svg" alt="" />Adapts with your child (ages 8–15)</li>
+                  <li><img src="./assets/1149-2596.svg" alt="" />Privacy-first: no tracking or logging</li>
+                  <li><img src="./assets/1149-2600.svg" alt="" />Responds to touch and interaction</li>
+                  <li><img src="./assets/1149-2604.svg" alt="" />Encourages real-world play</li>
+                  <li><img src="./assets/1149-2608.svg" alt="" />Expressive, companion-like feedback</li>
+                  <li><img src="./assets/1149-2612.svg" alt="" />Supports focus during homework</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta" id="waitlist">
+        <div>
+          <h2>Sign Up Now and<br />Get 30% OFF</h2>
+          <p>
+            Leave your email down below to indicate interest and be notified with any
+            updates
+          </p>
+          <form class="cta-form">
+            <div class="cta-form-row">
+              <label class="visually-hidden" for="cta-email">Email</label>
+              <input
+                id="cta-email"
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+                autocomplete="email"
+              />
+              <button type="submit" class="btn btn-pill">Send</button>
+            </div>
+            <input
+              type="text"
+              name="_gotcha"
+              class="cta-form-hp"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
+            <p class="cta-form-status" data-form-status hidden aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>Built with care for children and the parents who love them</p>
+        <p>© 2026 Bumi. A concept in development</p>
+      </footer>
+    </div>
+    <script src="./form-config.js"></script>
+    <script src="./cta-form.js"></script>
+  </body>
+</html>
