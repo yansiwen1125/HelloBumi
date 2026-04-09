@@ -3,6 +3,14 @@
     return typeof window.gtag === "function";
   }
 
+  function safeEventName(name) {
+    return String(name || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9_]+/g, "_")
+      .replace(/^_+|_+$/g, "")
+      .slice(0, 40);
+  }
+
   function track(eventName, params) {
     if (!hasGtag()) return;
     window.gtag("event", eventName, params || {});
@@ -12,9 +20,16 @@
   document.addEventListener("click", function (event) {
     var el = event.target.closest("[data-analytics='cta']");
     if (!el) return;
+    var ctaName = el.getAttribute("data-cta-name") || "unknown_cta";
+    var ctaLocation = el.getAttribute("data-cta-location") || "unknown_location";
     track("cta_click", {
-      cta_name: el.getAttribute("data-cta-name") || "unknown_cta",
-      location: el.getAttribute("data-cta-location") || "unknown_location",
+      cta_name: ctaName,
+      location: ctaLocation,
+      target: el.getAttribute("href") || "",
+    });
+    track(safeEventName(ctaName) + "_button", {
+      cta_name: ctaName,
+      location: ctaLocation,
       target: el.getAttribute("href") || "",
     });
   });
@@ -24,6 +39,9 @@
   if (ctaForm) {
     ctaForm.addEventListener("submit", function () {
       track("cta_submit", {
+        location: "waitlist",
+      });
+      track("cta_form_submit", {
         location: "waitlist",
       });
     });
@@ -37,6 +55,13 @@
   var activeName = null;
   var activeStart = 0;
   var ratioMap = {};
+  var viewedSections = {};
+
+  try {
+    viewedSections = JSON.parse(sessionStorage.getItem("ga_viewed_sections") || "{}");
+  } catch (e) {
+    viewedSections = {};
+  }
 
   function humanize(id) {
     return id.replace(/-/g, " ");
@@ -46,10 +71,18 @@
     if (!activeId || !activeStart) return;
     var dwellMs = Date.now() - activeStart;
     if (dwellMs < 800) return;
+    var sectionTimeEvent = safeEventName(activeId) + "_time";
     track("section_dwell", {
       section_id: activeId,
       section_name: activeName || humanize(activeId),
       dwell_ms: dwellMs,
+      end_reason: reason || "switch",
+    });
+    track(sectionTimeEvent, {
+      section_id: activeId,
+      section_name: activeName || humanize(activeId),
+      time_ms: dwellMs,
+      time_sec: Math.round(dwellMs / 1000),
       end_reason: reason || "switch",
     });
   }
@@ -82,10 +115,21 @@
           activeName = nextId ? humanize(nextId) : null;
           activeStart = nextId ? Date.now() : 0;
           if (nextId) {
-            track("section_view", {
-              section_id: activeId,
-              section_name: activeName,
-            });
+            if (!viewedSections[nextId]) {
+              track("section_view", {
+                section_id: activeId,
+                section_name: activeName,
+              });
+              viewedSections[nextId] = true;
+              try {
+                sessionStorage.setItem(
+                  "ga_viewed_sections",
+                  JSON.stringify(viewedSections)
+                );
+              } catch (e) {
+                // Ignore storage failures (private mode / quota).
+              }
+            }
           }
         }
       },
@@ -118,14 +162,34 @@
         video_id: "bumi_video",
         location: "see-bumi",
       });
+      track("video_click", {
+        video_id: "bumi_video",
+        location: "see-bumi",
+      });
     });
   }
 
   function wireVideo(videoEl, label) {
     if (!videoEl) return;
     var sent = { 25: false, 50: false, 75: false };
+    var playStartedAt = 0;
+
+    function flushWatchTime(endReason) {
+      if (!playStartedAt) return;
+      var watchedMs = Date.now() - playStartedAt;
+      playStartedAt = 0;
+      if (watchedMs < 300) return;
+      track("video_play_time", {
+        video_id: "bumi_video",
+        player: label,
+        watch_ms: watchedMs,
+        watch_sec: Math.round(watchedMs / 1000),
+        end_reason: endReason || "pause",
+      });
+    }
 
     videoEl.addEventListener("play", function () {
+      playStartedAt = Date.now();
       track("video_play", {
         video_id: "bumi_video",
         player: label,
@@ -134,6 +198,7 @@
     });
 
     videoEl.addEventListener("pause", function () {
+      flushWatchTime("pause");
       track("video_pause", {
         video_id: "bumi_video",
         player: label,
@@ -158,10 +223,17 @@
     });
 
     videoEl.addEventListener("ended", function () {
+      flushWatchTime("ended");
       track("video_complete", {
         video_id: "bumi_video",
         player: label,
       });
+    });
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "hidden") {
+        flushWatchTime("hidden");
+      }
     });
   }
 
