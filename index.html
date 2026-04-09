@@ -26,31 +26,86 @@
   </head>
   <body>
     <div class="page">
-      <header class="topbar">
-        <img class="logo" src="./assets/1145-2402.png" alt="Bumi logo" />
-        <nav class="menu">
-          <a href="#meet-bumi">How it works</a>
-          <a href="#our-product">Products</a>
-          <a href="#waitlist">FAQ's</a>
-          <a href="#waitlist" class="btn btn-sm">Join the Waiting List</a>
-        </nav>
-      </header>
-
-      <section class="hero">
-        <div class="hero-content">
-          <h1>Screen time that makes <span class="hero-highlight">them smarter</span></h1>
-          <p>
-            Bumi is an AI companion that gently interrupts scrolling habits and asks
-            questions that build critical thinking, self-awareness and emotional
-            intelligence. One pause at a time
-          </p>
-          <a class="btn btn-pill btn-lg learn-more" href="#meet-bumi">Learn more</a>
+      <!-- hero-scene：底层机器人 + 顶栏 + 文案同一叠层，加高避免切入视频区 -->
+      <div class="hero-scene">
+        <!-- 1537:320：absolute，z-index 0，相对 hero-scene（稿面 1440 同宽） -->
+        <div class="hero-figure" aria-hidden="true">
+          <div class="hero-figure-inner">
+            <div class="hero-figure-frame">
+              <img class="hero-figure-img" src="./assets/1149-2495.png" alt="" />
+            </div>
+          </div>
         </div>
-        <img class="hero-image" src="./assets/1145-2418.png" alt="Bumi device preview" />
+
+        <header class="topbar">
+          <img class="logo" src="./assets/1145-2402.png" alt="Bumi logo" />
+          <nav class="menu">
+            <a class="menu-link menu-link--emphasis" href="#meet-bumi">How it works</a>
+            <a class="menu-link" href="#our-product">Products</a>
+            <a class="menu-link" href="#faq">FAQ's</a>
+            <a href="#waitlist" class="btn btn-sm" data-analytics="cta" data-cta-name="topbar_register_interest" data-cta-location="topbar">Register Interest</a>
+          </nav>
+        </header>
+
+        <section class="hero" id="hero">
+          <div class="hero-content">
+            <!-- 1537:546：80 Bold，行高 90px；「them smarter」整块橙色 -->
+            <h1 class="hero-title">
+              Screen time that makes <span class="hero-highlight">them smarter</span>
+            </h1>
+            <p class="hero-lead">
+              Bumi is an AI companion that gently interrupts scrolling habits and asks questions that
+              build critical thinking, self-awareness and emotional intelligence.
+            </p>
+            <div class="hero-ctas">
+              <a class="btn btn-pill btn-lg" href="#meet-bumi" data-analytics="cta" data-cta-name="hero_see_how_it_works" data-cta-location="hero">See how it works</a>
+              <div class="hero-cta-secondary">
+                <a class="btn btn-pill btn-lg btn-outline" href="#waitlist" data-analytics="cta" data-cta-name="hero_register_interest" data-cta-location="hero">Register Interest</a>
+                <p class="hero-cta-note">Help shape Bumi as he develops</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- 1537:346：标题区居中；视频全宽铺满，滚入循环静音播，点击弹窗全功能控件 -->
+      <section class="video-showcase" id="see-bumi">
+        <div class="video-showcase-inner">
+          <div class="video-showcase-head">
+            <h2 class="video-showcase-title">See Bumi in Action</h2>
+            <img
+              class="video-showcase-underline"
+              src="./assets/1149-2480.svg"
+              alt=""
+              width="108"
+              height="6"
+            />
+          </div>
+        </div>
+        <div class="video-frame" data-video-preview>
+          <video
+            id="video-inline"
+            class="video-inline"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            aria-label="Bumi product video preview"
+          >
+            <source src="./assets/video.mp4" type="video/mp4" />
+          </video>
+          <span class="visually-hidden">Click for full playback with controls</span>
+        </div>
       </section>
 
-      <section class="problem">
-        <h2>The Problem We’re Solving</h2>
+      <section class="problem" id="problem">
+        <div class="problem-intro">
+          <h2>The Problem We’re Solving</h2>
+          <p class="problem-lead">
+            Every day, children absorb hours of content, repeating it, believing it and sharing it
+            without ever stopping to ask whether it&apos;s worth thinking about
+          </p>
+        </div>
         <div class="problem-grid">
           <article class="stat-card">
             <h3>3.6 hrs</h3>
@@ -72,6 +127,40 @@
               Of educational apps use predatory mechanics that create digital
               dependency early on.
             </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- 1537:419 — Two ways to bring Bumi home -->
+      <section class="bring-home" id="bring-home">
+        <div class="bring-home-head">
+          <h2>Two ways to bring Bumi home</h2>
+          <img class="bring-home-rule" src="./assets/1149-2480.svg" alt="" />
+          <p>
+            Whether you start with the app or go all in with the robot, Bumi works toward the same goal, a child who
+            thinks before they scroll
+          </p>
+        </div>
+        <div class="bring-home-grid">
+          <article class="bring-home-card">
+            <img class="bring-home-img" src="./assets/bring-home-app.png" alt="" />
+            <div class="bring-home-content">
+              <h3>App - smarter screen time</h3>
+              <p>
+                The app works wherever your child's phone does. The focus is building the habit of critical thinking so
+                your child doesn't just consume content, they question it.
+              </p>
+            </div>
+          </article>
+          <article class="bring-home-card bring-home-card--reverse">
+            <img class="bring-home-img" src="./assets/bring-home-robot.png" alt="" />
+            <div class="bring-home-content">
+              <h3>Robot - less screen time</h3>
+              <p>
+                Research shows children naturally disengage from screens when a responsive physical companion is present.
+                Bumi draws your child into the real world through play and movement.
+              </p>
+            </div>
           </article>
         </div>
       </section>
@@ -127,7 +216,7 @@
         </div>
       </section>
 
-      <section class="move">
+      <section class="move" id="on-the-move">
         <!-- 1149:2445：白底；标注与引线同行 flex 垂直居中 -->
         <div class="move-stage">
           <img class="move-rings" src="./assets/1149-2448.svg" alt="" />
@@ -201,6 +290,7 @@
         </div>
       </section>
 
+      <!-- 1540:2094 — Our Product -->
       <section class="product" id="our-product">
         <h2 class="product-title">Our Product</h2>
         <div class="product-grid">
@@ -213,7 +303,7 @@
               </div>
               <div class="product-pricing">
                 <strong>Starting at around $10/mo</strong>
-                <button type="button" class="btn btn-pill">Notify Me</button>
+                <a href="#waitlist" class="btn btn-pill" data-analytics="cta" data-cta-name="product_app_notify_me" data-cta-location="our-product">Notify Me</a>
               </div>
               <div class="product-features">
                 <h4>Features</h4>
@@ -226,6 +316,9 @@
                   <li><img src="./assets/1149-2557.svg" alt="" />Privacy-first: no tracking or logging</li>
                 </ul>
               </div>
+              <p class="product-bestfor">
+                Best for: Families who want to start with screen time that actively develops their child's thinking.
+              </p>
             </div>
           </article>
           <article class="product-card product-card-alt">
@@ -236,8 +329,8 @@
                 <p>Get Bumi the Robot + 1 year premium subscription included</p>
               </div>
               <div class="product-pricing">
-                <strong>Starting at around $259</strong>
-                <button type="button" class="btn btn-pill">Notify Me</button>
+                <strong>Starting at around $499</strong>
+                <a href="#waitlist" class="btn btn-pill" data-analytics="cta" data-cta-name="product_robot_notify_me" data-cta-location="our-product">Notify Me</a>
               </div>
               <div class="product-features">
                 <h4>Features</h4>
@@ -254,17 +347,106 @@
                   <li><img src="./assets/1149-2612.svg" alt="" />Supports focus during homework</li>
                 </ul>
               </div>
+              <p class="product-bestfor">
+                Best for: Families who want to actively reduce screen time alongside building better habits.
+              </p>
             </div>
           </article>
         </div>
       </section>
 
+      <!-- 1543:2233 — Why choose Bumi? -->
+      <section class="why" id="why-bumi">
+        <div class="why-head">
+          <h2>Why choose Bumi?</h2>
+          <img class="why-rule" src="./assets/1149-2480.svg" alt="" />
+        </div>
+        <div class="why-grid">
+          <article class="why-card">
+            <div class="why-icon" aria-hidden="true">
+              <img src="./assets/why-research.svg" alt="" />
+            </div>
+            <h3>Backed by Research</h3>
+            <p>
+              Bumi is built on Socratic Questioning, a research-backed method proven to help children examine their own
+              thinking, challenge assumptions, and develop critical reasoning over time
+            </p>
+          </article>
+          <article class="why-card">
+            <div class="why-icon" aria-hidden="true">
+              <img src="./assets/why-teaches.svg" alt="" />
+            </div>
+            <h3>Teaches, not controls</h3>
+            <p>
+              Most screen time tools block or restrict. Bumi does something harder, it teaches children to make better
+              choices themselves, building digital literacy that lasts beyond any parental control
+            </p>
+          </article>
+          <article class="why-card">
+            <div class="why-icon" aria-hidden="true">
+              <img src="./assets/why-longgame.svg" alt="" />
+            </div>
+            <h3>Built for the long game</h3>
+            <p>
+              A child who learns to pause and question at 8 carries that habit into their teens and beyond. Bumi isn't a
+              fix for today's screen time, it's an investment in how your child thinks
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="faq" id="faq">
+        <div class="faq-head">
+          <h2 class="faq-title">FAQs</h2>
+          <img class="faq-rule" src="./assets/1149-2480.svg" alt="" />
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>What makes Bumi different from just setting screen time limits?</summary>
+            <p>
+              Screen time limits control how long your child is on a device. Bumi works on what
+              happens during that time — teaching them to pause, question, and think critically
+              about what they&apos;re watching. The goal is a child who makes better choices, not
+              just one who stops when the timer goes off.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>How does Bumi know what my child is watching?</summary>
+            <p>
+              Bumi Smart AI reads how they're watching. Scroll speed, app switching, and session length give it enough
+              signal to know when passive consumption has set in and it's time to pause
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Is my child&apos;s data private?</summary>
+            <p>
+              Bumi is privacy-first. We don't track viewing history, log conversations, or store personal data beyond
+              what's needed to run the app. No data is ever sold or shared
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>What age is Bumi designed for?</summary>
+            <p>
+              Bumi is built for children aged 8 to 15. The questions and level of autonomy adjust automatically as your
+              child grows and its teachings stays relevant long after.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>When will Bumi be available, and what does registering interest mean?</summary>
+            <p>
+              Bumi is currently in development. By registering interest you're not committing to a purchase, you're
+              letting us know you'd want this for your family. We'll only reach out when there's something worth
+              sharing.
+            </p>
+          </details>
+        </div>
+      </section>
+
       <section class="cta" id="waitlist">
         <div>
-          <h2>Sign Up Now and<br />Get 30% OFF</h2>
+          <h2>Help us shape Bumi</h2>
           <p>
-            Leave your email down below to indicate interest and be notified with any
-            updates
+            Leave your email below to register interest and be the first to hear when Bumi is ready. No spam, we'll only reach out when it matters.
           </p>
           <form class="cta-form">
             <div class="cta-form-row">
@@ -277,7 +459,7 @@
                 required
                 autocomplete="email"
               />
-              <button type="submit" class="btn btn-pill">Send</button>
+              <button type="submit" class="btn btn-pill">Register Interest</button>
             </div>
             <input
               type="text"
@@ -292,12 +474,40 @@
         </div>
       </section>
 
-      <footer class="footer">
+      <footer class="footer" id="site-footer">
         <p>Built with care for children and the parents who love them</p>
-        <p>© 2026 Bumi. A concept in development</p>
+        <p>© 2026 Bumi. Currently in early access</p>
       </footer>
     </div>
+
+    <div
+      id="video-modal"
+      class="video-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Video player"
+      hidden
+    >
+      <div class="video-modal__backdrop" data-video-modal-close tabindex="-1"></div>
+      <div class="video-modal__dialog">
+        <button type="button" class="video-modal__close" data-video-modal-close aria-label="Close">
+          &times;
+        </button>
+        <video
+          id="video-modal-player"
+          class="video-modal__video"
+          controls
+          playsinline
+          preload="metadata"
+        >
+          <source src="./assets/video.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
     <script src="./form-config.js"></script>
     <script src="./cta-form.js"></script>
+    <script src="./video-showcase.js"></script>
+    <script src="./analytics-events.js"></script>
   </body>
 </html>
